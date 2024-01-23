@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.grid-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/batman-bck-transformed.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.grid {
+  width: 700px;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 10px 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.grid div {
+  border: 1px solid rgb(129, 126, 126);
+  display: inline-block;
+  aspect-ratio: 1;
+}
+
+.grid div.joker {
+  background-image: url('../assets/joker.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.wall {
+  background-image: url('../assets/batman-wall.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.joker-name {
+  background-image: url('../assets/new-joker.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.superman {
+  background-image: url('../assets/superman.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#lives-display{
+  width: 200px;
+  height: 650px;
+  font-size: 30px;
+  margin: 10px;
+}
+/* .grid div {
+  border: none;
+  display: inline-block;
+  aspect-ratio: 1;
+  text-align: center; 
+  line-height: 2em; 
+} */
