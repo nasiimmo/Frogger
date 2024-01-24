@@ -26,7 +26,7 @@ let imagePos = 0
 const supermanStartPos = 15
 let supermanCurrent = supermanStartPos
 
-const supermanStartPos2 = 22
+const supermanStartPos2 = 16
 let supermanCurrent2 = supermanStartPos2
 
 
@@ -35,7 +35,10 @@ const supermanStartPos3 = 30
 let supermanCurrent3 = supermanStartPos3
 
 const supermanStartPos4 = 38
-let supermanCurrent4 = supermanStartPos3
+let supermanCurrent4 = supermanStartPos4
+
+const batmanStartPos1 = 60
+let batmanCurrent1 = batmanStartPos1
 
 
 
@@ -59,9 +62,10 @@ function createGrid() {
   addWall()
   addName()
   setInterval(moveImageOne, 1000)
-  setInterval(moveImageTwo, 5000)
+  setInterval(moveImageTwo, 4000)
   setInterval(moveImageThree, 2000)
   setInterval(moveImageFour, 5000)
+  setInterval(moveBatmanOne, 2000)
 }
 
 function addSuperman() {
@@ -89,6 +93,14 @@ function addSuperman4() {
 }
 function removeSuperman4() {
   cells[supermanCurrent4].classList.remove('superman')
+}
+
+
+function addBatman1() {
+  cells[batmanCurrent1].classList.add('batman')
+}
+function removeBatman1() {
+  cells[batmanCurrent1].classList.remove('batman')
 }
 
 
@@ -139,10 +151,31 @@ function moveImageFour() {
   supermanCurrent4 = supermanCurrent4 - (supermanCurrent4 % width) + imagePos
   addSuperman4()
 }
+function moveBatmanOne() {
+  removeBatman1()
+  
+  imagePos++
+
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  // making it move right to left
+  batmanCurrent1 = batmanCurrent1 + (width - 1 - (batmanCurrent1 % width))
+  addBatman1()
+}
+
 function resetVariables(){
   clearInterval(gameInterval)
   lives = 3
   livesDisplay.innerText = '❤️❤️❤️'
+  resetToStartPosition()
+}
+
+function resetVariables(){
+  clearInterval(gameInterval)
+  lives = 3
+  livesDisplay.innerText = '❤️❤️❤️'
+  resetToStartPosition()
 }
 
 // function for elimination
@@ -163,12 +196,6 @@ function addJoker() {
 
 function removeJoker() {
   cells[currentPos].classList.remove('joker')
-}
-function addBatman() {
-  cells[currentPos].classList.add('batman')
-}
-function removeBatman() {
-  cells[currentPos].classList.remove('batman')
 }
 const wallPos = [
   165, 166, 167, 171,
@@ -237,13 +264,13 @@ function keyPress(evt) {
 function endGame() {
   // Clear gameInterval
   clearInterval(gameInterval)
-  resetVariables()
   // Alert game over
   setTimeout(() => {
     alert('GAME OVER!!!!\nYou lost to your arch nemesis!')
     // Set game to inactive
     gameActive = false
   }, 5)
+  resetVariables()
   
 }
 

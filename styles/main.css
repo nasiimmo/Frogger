@@ -48,6 +48,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.batman {
+  background-image: url('../assets/batman-sticker.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #lives-display{
   width: 200px;
   height: 650px;
