@@ -40,6 +40,27 @@ let supermanCurrent4 = supermanStartPos4
 const batmanStartPos1 = 60
 let batmanCurrent1 = batmanStartPos1
 
+const batmanStartPos2 = 75
+let batmanCurrent2 = batmanStartPos2
+
+const batmanStartPos3 = 90
+let batmanCurrent3 = batmanStartPos3
+
+const batmanStartPos4 = 180
+let batmanCurrent4 = batmanStartPos4
+
+const batarangStartPos1 = 120
+let batarangCurrent1 = batarangStartPos1
+
+const batarangStartPos2 = 135
+let batarangCurrent2 = batarangStartPos2
+
+const batarangStartPos3 = 150
+let batarangCurrent3 = batarangStartPos3
+
+const batarangStartPos4 = 195
+let batarangCurrent4 = batarangStartPos4
+
 
 
 // ! Grid
@@ -65,7 +86,14 @@ function createGrid() {
   setInterval(moveImageTwo, 4000)
   setInterval(moveImageThree, 2000)
   setInterval(moveImageFour, 5000)
-  setInterval(moveBatmanOne, 2000)
+  setInterval(moveBatmanOne, 1000)
+  setInterval(moveBatmanTwo, 2000)
+  setInterval(moveBatmanThree, 2000)
+  setInterval(moveBatmanFour, 2000)
+  setInterval(moveBatarangOne, 1000)
+  setInterval(moveBatarangTwo, 1000)
+  setInterval(moveBatarangThree, 3000)
+  setInterval(moveBatarangFour, 1000)
 }
 
 function addSuperman() {
@@ -101,6 +129,50 @@ function addBatman1() {
 }
 function removeBatman1() {
   cells[batmanCurrent1].classList.remove('batman')
+}
+function addBatman2() {
+  cells[batmanCurrent2].classList.add('batman')
+}
+function removeBatman2() {
+  cells[batmanCurrent2].classList.remove('batman')
+}
+function addBatman3() {
+  cells[batmanCurrent3].classList.add('batman')
+}
+function removeBatman3() {
+  cells[batmanCurrent3].classList.remove('batman')
+}
+function addBatman4() {
+  cells[batmanCurrent4].classList.add('batman')
+}
+function removeBatman4() {
+  cells[batmanCurrent4].classList.remove('batman')
+}
+
+
+function addBatarang1() {
+  cells[batarangCurrent1].classList.add('batarang')
+}
+function removeBatarang1() {
+  cells[batarangCurrent1].classList.remove('batarang')
+}
+function addBatarang2() {
+  cells[batarangCurrent2].classList.add('batarang')
+}
+function removeBatarang2() {
+  cells[batarangCurrent2].classList.remove('batarang')
+}
+function addBatarang3() {
+  cells[batarangCurrent3].classList.add('batarang')
+}
+function removeBatarang3() {
+  cells[batarangCurrent3].classList.remove('batarang')
+}
+function addBatarang4() {
+  cells[batarangCurrent4].classList.add('batarang')
+}
+function removeBatarang4() {
+  cells[batarangCurrent4].classList.remove('batarang')
 }
 
 
@@ -155,14 +227,95 @@ function moveBatmanOne() {
   removeBatman1()
   
   imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batmanCurrent1 = batmanCurrent1 - (batmanCurrent1 % width) + imagePos
+  addBatman1()
+}
+function moveBatmanTwo() {
+  removeBatman2()
+  
+  imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batmanCurrent2 = batmanCurrent2 - (batmanCurrent2 % width) + imagePos
+  addBatman2()
+}
+function moveBatmanThree() {
+  removeBatman3()
+  
+  imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batmanCurrent3 = batmanCurrent3 - (batmanCurrent3 % width) + imagePos
+  addBatman3()
+}
+function moveBatmanFour() {
+  removeBatman4()
+  
+  imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batmanCurrent4 = batmanCurrent4 - (batmanCurrent4 % width) + imagePos
+  addBatman4()
+}
+
+
+
+function moveBatarangOne() {
+  removeBatarang1()
+  
+  imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batarangCurrent1 = batarangCurrent1 - (batarangCurrent1 % width) + imagePos
+  addBatarang1()
+}
+function moveBatarangTwo() {
+  removeBatarang2()
+  
+  imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batarangCurrent2 = batarangCurrent2 - (batarangCurrent2 % width) + imagePos
+  addBatarang2()
+}
+function moveBatarangThree() {
+  removeBatarang3()
+  
+  imagePos++
+  
+  if (imagePos >= width) {
+    imagePos = 0
+  }
+  batarangCurrent3 = batarangCurrent3 - (batarangCurrent3 % width) + imagePos
+  addBatarang3()
+}
+
+function moveBatarangFour() {
+  removeBatarang4()
+
+  imagePos++
 
   if (imagePos >= width) {
     imagePos = 0
   }
-  // making it move right to left
-  batmanCurrent1 = batmanCurrent1 + (width - 1 - (batmanCurrent1 % width))
-  addBatman1()
+  batarangCurrent4 = batarangCurrent4 - (batarangCurrent4 % width) + imagePos
+  addBatarang4()
 }
+
 
 function resetVariables(){
   clearInterval(gameInterval)
@@ -243,7 +396,7 @@ function keyPress(evt) {
   }
 
   addJoker()
-  if (currentPos === supermanCurrent || currentPos === supermanCurrent2 || currentPos === supermanCurrent3 || currentPos === supermanCurrent4) {
+  if (currentPos === supermanCurrent || currentPos === supermanCurrent2 || currentPos === supermanCurrent3 || currentPos === supermanCurrent4 || currentPos === batmanCurrent1 || currentPos === batmanCurrent2 || currentPos === batmanCurrent3 || currentPos === batmanCurrent4 || currentPos === batarangCurrent1 || currentPos === batarangCurrent2 || currentPos === batarangCurrent3 || currentPos === batarangCurrent4 ) {
     // Remove a life
     lives -= 1
     // Update lives display

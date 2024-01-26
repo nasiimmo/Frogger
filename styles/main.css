@@ -53,12 +53,31 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.batarang {
+  background-image: url('../assets/batarang.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #lives-display{
   width: 200px;
   height: 650px;
   font-size: 30px;
   margin: 10px;
 }
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  height: 800px;
+  font-size: 30px;
+}
+.side-description {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: white;
+  margin: 30px;
+}
+
 /* .grid div {
   border: none;
   display: inline-block;
