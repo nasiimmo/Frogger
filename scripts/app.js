@@ -22,6 +22,7 @@ let gameActive = false
 const startPos = 210
 let currentPos = startPos
 
+
 let imagePos = 0
 const supermanStartPos = 15
 let supermanCurrent = supermanStartPos
@@ -82,6 +83,7 @@ function createGrid() {
   addJoker(currentPos)
   addWall()
   addName()
+  addFinish()
   setInterval(moveImageOne, 1000)
   setInterval(moveImageTwo, 4000)
   setInterval(moveImageThree, 2000)
@@ -376,6 +378,15 @@ function addName() {
 const namePos = [
   210
 ]
+function addFinish() {
+
+  for (const position of finishPos) {
+    cells[position].classList.add('joker-finish')
+  }
+}
+const finishPos = [
+  4
+]
 
 
 
@@ -396,7 +407,7 @@ function keyPress(evt) {
   }
 
   addJoker()
-  if (currentPos === supermanCurrent || currentPos === supermanCurrent2 || currentPos === supermanCurrent3 || currentPos === supermanCurrent4 || currentPos === batmanCurrent1 || currentPos === batmanCurrent2 || currentPos === batmanCurrent3 || currentPos === batmanCurrent4 || currentPos === batarangCurrent1 || currentPos === batarangCurrent2 || currentPos === batarangCurrent3 || currentPos === batarangCurrent4 ) {
+  if (currentPos === supermanCurrent || currentPos === supermanCurrent2 || currentPos === supermanCurrent3 || currentPos === supermanCurrent4 || currentPos === batmanCurrent1 || currentPos === batmanCurrent2 || currentPos === batmanCurrent3 || currentPos === batmanCurrent4 || currentPos === batarangCurrent1 || currentPos === batarangCurrent2 || currentPos === batarangCurrent3 ) {
     // Remove a life
     lives -= 1
     // Update lives display
@@ -412,6 +423,9 @@ function keyPress(evt) {
   if (cells[currentPos].classList.contains('wall')){
     currentPos = previousPosition
   }
+  if (cells[currentPos].classList.contains('joker-finish')){
+    finishGame()
+  }
 }
 
 function endGame() {
@@ -420,6 +434,18 @@ function endGame() {
   // Alert game over
   setTimeout(() => {
     alert('GAME OVER!!!!\nYou lost to your arch nemesis!')
+    // Set game to inactive
+    gameActive = false
+  }, 5)
+  resetVariables()
+  
+}
+function finishGame() {
+  // Clear gameInterval
+  clearInterval(gameInterval)
+  // Alert game over
+  setTimeout(() => {
+    alert('Winner !!!!\nYou won against your arch nemesis!')
     // Set game to inactive
     gameActive = false
   }, 5)

@@ -43,6 +43,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.joker-finish {
+  background-image: url('../assets/JokerNew.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .superman {
   background-image: url('../assets/superman.jpeg');
   background-repeat: no-repeat;
