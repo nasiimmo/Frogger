@@ -73,10 +73,14 @@ const cellCount = width * width // this variable represents the number of cells 
 function createGrid() {
   for (let i = 0; i < cellCount; i++) {
     const cell = document.createElement('div')
-    cell.innerText = i //remove this to remove the numbers on ur grid
+    // cell.innerText = i //remove this to remove the numbers on ur grid
     cell.id = i
     // Set width and height of the div cells
     cell.style.width = `${100 / width}%`
+    cell.style.border = 'none'
+    // Add styles to remove space between grid cells
+    cell.style.margin = '0'
+    cell.style.padding = '0'
     grid.append(cell)
     cells.push(cell)
   }
@@ -84,17 +88,17 @@ function createGrid() {
   addWall()
   addName()
   addFinish()
-  setInterval(moveImageOne, 1000)
-  setInterval(moveImageTwo, 4000)
-  setInterval(moveImageThree, 2000)
-  setInterval(moveImageFour, 5000)
+  setInterval(moveImageOne, 700)
+  setInterval(moveImageTwo, 800)
+  setInterval(moveImageThree, 700)
+  setInterval(moveImageFour, 700)
   setInterval(moveBatmanOne, 1000)
-  setInterval(moveBatmanTwo, 2000)
+  setInterval(moveBatmanTwo, 600)
   setInterval(moveBatmanThree, 2000)
-  setInterval(moveBatmanFour, 2000)
+  setInterval(moveBatmanFour, 1000)
   setInterval(moveBatarangOne, 1000)
   setInterval(moveBatarangTwo, 1000)
-  setInterval(moveBatarangThree, 3000)
+  setInterval(moveBatarangThree, 1000)
   setInterval(moveBatarangFour, 1000)
 }
 
@@ -177,28 +181,39 @@ function removeBatarang4() {
   cells[batarangCurrent4].classList.remove('batarang')
 }
 
-
 function moveImageOne() {
   removeSuperman()
 
-  imagePos++
+  imagePos--
 
-  if (imagePos >= width) {
-    imagePos = 0
+  if (imagePos < 0) {
+    imagePos = width - 1
   }
-  supermanCurrent = supermanCurrent - (supermanCurrent % width) + imagePos
+
+  supermanCurrent--
+
+  if (supermanCurrent % width === width - 1) {
+    supermanCurrent += width
+  }
+
   addSuperman()
 }
 
 function moveImageTwo() {
   removeSuperman2()
 
-  imagePos++
+  imagePos--
 
-  if (imagePos >= width) {
-    imagePos = 0
+  if (imagePos < 0) {
+    imagePos = width - 1
   }
-  supermanCurrent2 = supermanCurrent2 - (supermanCurrent2 % width) + imagePos
+
+  supermanCurrent2--
+
+  if (supermanCurrent2 % width === width - 1) {
+    supermanCurrent2 += width
+  }
+
   addSuperman2()
 }
 
@@ -211,9 +226,16 @@ function moveImageThree() {
   if (imagePos >= width) {
     imagePos = 0
   }
-  supermanCurrent3 = supermanCurrent3 - (supermanCurrent3 % width) + imagePos
+
+  supermanCurrent3++
+
+  if (supermanCurrent3 % width === 0) {
+    supermanCurrent3 -= width
+  }
+
   addSuperman3()
 }
+
 function moveImageFour() {
   removeSuperman4()
 
@@ -222,53 +244,86 @@ function moveImageFour() {
   if (imagePos >= width) {
     imagePos = 0
   }
-  supermanCurrent4 = supermanCurrent4 - (supermanCurrent4 % width) + imagePos
+
+  supermanCurrent4++
+
+  if (supermanCurrent4 % width === 0) {
+    supermanCurrent4 -= width
+  }
+
   addSuperman4()
 }
+
 function moveBatmanOne() {
   removeBatman1()
   
+
   imagePos++
   
   if (imagePos >= width) {
     imagePos = 0
   }
-  batmanCurrent1 = batmanCurrent1 - (batmanCurrent1 % width) + imagePos
+
+  batmanCurrent1++
+
+  if (batmanCurrent1 % width === 0) {
+
+    batmanCurrent1 -= width
+  }
+  
   addBatman1()
 }
+
 function moveBatmanTwo() {
   removeBatman2()
   
-  imagePos++
+  imagePos-- 
   
-  if (imagePos >= width) {
-    imagePos = 0
+  if (imagePos < 0) {
+    imagePos = width - 1 
   }
-  batmanCurrent2 = batmanCurrent2 - (batmanCurrent2 % width) + imagePos
+
+  batmanCurrent2--
+
+  if (batmanCurrent2 % width === width - 1) {
+    batmanCurrent2 += width
+  }
+  
   addBatman2()
 }
+
+
 function moveBatmanThree() {
   removeBatman3()
   
+  // Increment the image position by 1
   imagePos++
   
   if (imagePos >= width) {
     imagePos = 0
   }
-  batmanCurrent3 = batmanCurrent3 - (batmanCurrent3 % width) + imagePos
+  batmanCurrent3++
+
+  if (batmanCurrent3 % width === 0) {
+    batmanCurrent3 -= width
+  }
+  
   addBatman3()
 }
+
 function moveBatmanFour() {
   removeBatman4()
   
-  imagePos++
+  imagePos--
   
-  if (imagePos >= width) {
-    imagePos = 0
+  if (imagePos < 0) {
+    imagePos = width - 1
   }
+  
   batmanCurrent4 = batmanCurrent4 - (batmanCurrent4 % width) + imagePos
   addBatman4()
 }
+
 
 
 
@@ -280,9 +335,19 @@ function moveBatarangOne() {
   if (imagePos >= width) {
     imagePos = 0
   }
-  batarangCurrent1 = batarangCurrent1 - (batarangCurrent1 % width) + imagePos
+  
+
+  batarangCurrent1++
+  
+
+  if (batarangCurrent1 % width === 0) {
+    batarangCurrent1 -= width
+  }
+  
+  // Add the batarang to its new position
   addBatarang1()
 }
+
 function moveBatarangTwo() {
   removeBatarang2()
   
@@ -302,9 +367,16 @@ function moveBatarangThree() {
   if (imagePos >= width) {
     imagePos = 0
   }
-  batarangCurrent3 = batarangCurrent3 - (batarangCurrent3 % width) + imagePos
+
+  batarangCurrent3++
+  if (batarangCurrent3 % width === 0) {
+    
+    batarangCurrent3 -= width
+  }
+  
   addBatarang3()
 }
+
 
 function moveBatarangFour() {
   removeBatarang4()
@@ -314,17 +386,18 @@ function moveBatarangFour() {
   if (imagePos >= width) {
     imagePos = 0
   }
-  batarangCurrent4 = batarangCurrent4 - (batarangCurrent4 % width) + imagePos
+
+  batarangCurrent4++
+
+  if (batarangCurrent4 % width === 0) {
+
+    batarangCurrent4 -= width
+  }
+
   addBatarang4()
 }
 
 
-function resetVariables(){
-  clearInterval(gameInterval)
-  lives = 3
-  livesDisplay.innerText = '❤️❤️❤️'
-  resetToStartPosition()
-}
 
 function resetVariables(){
   clearInterval(gameInterval)
@@ -332,6 +405,7 @@ function resetVariables(){
   livesDisplay.innerText = '❤️❤️❤️'
   resetToStartPosition()
 }
+
 
 // function for elimination
 function removeLife() {
@@ -359,7 +433,10 @@ const wallPos = [
   48, 51, 52, 53,
   54, 55, 58, 59,
   106, 107, 108,
-  115, 116, 117
+  115, 116, 117,
+  0, 2, 3, 4, 5,
+  6, 7, 8, 9, 10,
+  11, 12, 14
 ]
 
 function addWall() {
@@ -385,7 +462,7 @@ function addFinish() {
   }
 }
 const finishPos = [
-  4
+  1, 13
 ]
 
 
@@ -407,7 +484,7 @@ function keyPress(evt) {
   }
 
   addJoker()
-  if (currentPos === supermanCurrent || currentPos === supermanCurrent2 || currentPos === supermanCurrent3 || currentPos === supermanCurrent4 || currentPos === batmanCurrent1 || currentPos === batmanCurrent2 || currentPos === batmanCurrent3 || currentPos === batmanCurrent4 || currentPos === batarangCurrent1 || currentPos === batarangCurrent2 || currentPos === batarangCurrent3 ) {
+  if (currentPos === supermanCurrent || currentPos === supermanCurrent2 || currentPos === supermanCurrent3 || currentPos === supermanCurrent4 || currentPos === batmanCurrent1 || currentPos === batmanCurrent2 || currentPos === batmanCurrent3 || currentPos === batmanCurrent4 || currentPos === batarangCurrent1 || currentPos === batarangCurrent2 || currentPos === batarangCurrent3 || currentPos === batarangCurrent4 ) {
     // Remove a life
     lives -= 1
     // Update lives display
@@ -423,6 +500,7 @@ function keyPress(evt) {
   if (cells[currentPos].classList.contains('wall')){
     currentPos = previousPosition
   }
+  
   if (cells[currentPos].classList.contains('joker-finish')){
     finishGame()
   }
