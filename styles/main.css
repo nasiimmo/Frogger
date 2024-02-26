@@ -14,6 +14,7 @@ body {
   background-image: url('../assets/batman-bck-transformed.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 .grid {
   width: 700px;
