@@ -30,23 +30,23 @@ Before commencing the project, I initially wrote some pseudocode as an initial s
 
 **Day 1**: I outlined my plan and sought inspiration from existing games while striving to develop my unique theme. I also structured all of my files and folders accordingly, so it would be easier for me.
 
-<img src='../assets/day_1.png' width="400"/>
+<img src='./assets/day_1.png' width="400"/>
 
 **Day 2**: I commenced coding, starting with the HTML portion, which progressed smoothly. I then engaged deeply in JavaScript functionality, leveraging lessons from previous coursework, which provided a helpful starting point.
 
-<img src='../assets/day_2.png' width="400"/>
+<img src='./assets/day_2.png' width="400"/>
 
 **Day 3**: My focus shifted to implementing obstacles and walls to ensure their visibility within the grid.
 
-<img src='../assets/day_3.png' width="400"/>
-<img src='../assets/day_32.png' width="400"/>
+<img src='./assets/day_3.png' width="400"/>
+<img src='./assets/day_32.png' width="400"/>
 **Day 4**: I introduced functionality to deduct a life upon collision with an obstacle, subsequently incorporating a lose condition.
 
-<img src='../assets/day_4.png' width="400"/>
+<img src='./assets/day_4.png' width="400"/>
 
 **Day 5**: Enhancements included the addition of a win condition and the implementation of randomized movement for obstacles across the grid. However, the visual presentation required refinement.
 
-<img src='../assets/day_5.png' width="400"/>
+<img src='./assets/day_5.png' width="400"/>
 
 **Day 6**: I conducted a comprehensive review to ensure the game's functionality and to address any existing bugs.
 
