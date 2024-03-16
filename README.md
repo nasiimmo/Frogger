@@ -30,7 +30,7 @@ Before commencing the project, I initially wrote some pseudocode as an initial s
 
 **Day 1**: I outlined my plan and sought inspiration from existing games while striving to develop my unique theme. I also structured all of my files and folders accordingly, so it would be easier for me.
 
-<img src='./assets/day_1.png' width="400"/>
+<img src='./assets/day_1.png' width="300"/>
 
 **Day 2**: I commenced coding, starting with the HTML portion, which progressed smoothly. I then engaged deeply in JavaScript functionality, leveraging lessons from previous coursework, which provided a helpful starting point.
 
